@@ -5,6 +5,7 @@ import ru.smak.graphics.convertation.CartesianScreenPlane
 import ru.smak.graphics.painting.CartesianPainter
 import ru.smak.graphics.painting.GridPainter
 import ru.smak.graphics.painting.PanelPointer
+import ru.smak.grpahics.painting.MyPainter
 import java.awt.Dimension
 import javax.swing.GroupLayout
 import javax.swing.JFrame
@@ -46,6 +47,8 @@ class MainWindow : JFrame("Экзамен: КТ, 3 курс") {
         mainPanel.addPainter(cartesianP)
         val gridP = GridPainter(plane)
         mainPanel.addPainter(gridP, 0)
+        val myP = MyPainter(plane)
+        mainPanel.addPainter(myP)
         /**
          * Добавление указателя в позицию мыши
          */
