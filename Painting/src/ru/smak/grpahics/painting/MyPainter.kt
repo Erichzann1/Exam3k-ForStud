@@ -24,16 +24,16 @@ class MyPainter(final override var plane: CartesianScreenPlane) : APainter() {
         val first = {x:Double -> x+1/(x*x*x)}
         val second = {x:Double -> cos(asin(x)/4)}
         myPaint(g, first)
-        myPaint(g, second)
     }
 
     private fun myPaint(g: Graphics?, operation: (Double)->Double){
         var y1:Int
         var y2:Int
-        for (i in 0..plane.realWidth) {
+        for (i in 0..plane.width) {
             y1 = Converter.yCrt2Scr(operation(Converter.xScr2Crt(i, plane)), plane)
             y2 = Converter.yCrt2Scr(operation(Converter.xScr2Crt(i + 1, plane)), plane)
             g?.drawLine(i, y1, i + 1, y2)
         }
     }
+
 }
